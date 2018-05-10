@@ -39,14 +39,14 @@ async function home(ctx){
   try{
     var pool = await sql.connect(config);
     var result = await pool.request()
-                      .query("create table apple3(mid char(10))");
+                      .query("create table apple6(mid char(10))");
     console.dir(result);
     sql.close();
   }catch(err){
     console.log(err);
     sql.close();
   }
-  ctx.body = await ctx.render('home');
+  ctx.body = await ctx.render('home',{data:'Hello World Apple'});
 }
 
 app.listen(3000);
